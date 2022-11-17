@@ -32,17 +32,16 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.mrcIngresados = new System.Windows.Forms.GroupBox();
-            this.ListBoxRepuestos = new System.Windows.Forms.ListBox();
             this.txtDescripcionConsulta = new System.Windows.Forms.RichTextBox();
             this.lblDescripcion2 = new System.Windows.Forms.Label();
-            this.txtPrecioConsulta = new System.Windows.Forms.TextBox();
-            this.lblPrecio2 = new System.Windows.Forms.Label();
-            this.lblNumero2 = new System.Windows.Forms.Label();
-            this.txtNumeroConsulta = new System.Windows.Forms.TextBox();
             this.mrcOrigen = new System.Windows.Forms.GroupBox();
             this.optNacional = new System.Windows.Forms.RadioButton();
             this.optImportado = new System.Windows.Forms.RadioButton();
+            this.txtPrecioConsulta = new System.Windows.Forms.TextBox();
+            this.lblPrecio2 = new System.Windows.Forms.Label();
             this.lblMarca2 = new System.Windows.Forms.Label();
+            this.lblNumero2 = new System.Windows.Forms.Label();
+            this.txtNumeroConsulta = new System.Windows.Forms.TextBox();
             this.LstMarcaConsulta = new System.Windows.Forms.ComboBox();
             this.mrcDatos = new System.Windows.Forms.GroupBox();
             this.LstOrigen = new System.Windows.Forms.ComboBox();
@@ -62,7 +61,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(175, 382);
+            this.btnConsultar.Location = new System.Drawing.Point(369, 123);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(99, 35);
             this.btnConsultar.TabIndex = 22;
@@ -72,16 +71,17 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(514, 147);
+            this.btnSalir.Location = new System.Drawing.Point(399, 430);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(99, 35);
             this.btnSalir.TabIndex = 21;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(514, 67);
+            this.btnRegistrar.Location = new System.Drawing.Point(369, 117);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(99, 35);
             this.btnRegistrar.TabIndex = 20;
@@ -91,31 +91,27 @@
             // 
             // mrcIngresados
             // 
-            this.mrcIngresados.Controls.Add(this.ListBoxRepuestos);
+            this.mrcIngresados.Controls.Add(this.btnConsultar);
             this.mrcIngresados.Controls.Add(this.txtDescripcionConsulta);
             this.mrcIngresados.Controls.Add(this.lblDescripcion2);
+            this.mrcIngresados.Controls.Add(this.mrcOrigen);
             this.mrcIngresados.Controls.Add(this.txtPrecioConsulta);
             this.mrcIngresados.Controls.Add(this.lblPrecio2);
+            this.mrcIngresados.Controls.Add(this.lblMarca2);
             this.mrcIngresados.Controls.Add(this.lblNumero2);
             this.mrcIngresados.Controls.Add(this.txtNumeroConsulta);
-            this.mrcIngresados.Location = new System.Drawing.Point(12, 421);
+            this.mrcIngresados.Controls.Add(this.LstMarcaConsulta);
+            this.mrcIngresados.Location = new System.Drawing.Point(12, 234);
             this.mrcIngresados.Name = "mrcIngresados";
-            this.mrcIngresados.Size = new System.Drawing.Size(496, 181);
+            this.mrcIngresados.Size = new System.Drawing.Size(486, 181);
             this.mrcIngresados.TabIndex = 19;
             this.mrcIngresados.TabStop = false;
             this.mrcIngresados.Text = "Repuestos Ingresados";
-            // 
-            // ListBoxRepuestos
-            // 
-            this.ListBoxRepuestos.FormattingEnabled = true;
-            this.ListBoxRepuestos.Location = new System.Drawing.Point(16, 41);
-            this.ListBoxRepuestos.Name = "ListBoxRepuestos";
-            this.ListBoxRepuestos.Size = new System.Drawing.Size(120, 95);
-            this.ListBoxRepuestos.TabIndex = 23;
+            this.mrcIngresados.Enter += new System.EventHandler(this.mrcIngresados_Enter);
             // 
             // txtDescripcionConsulta
             // 
-            this.txtDescripcionConsulta.Location = new System.Drawing.Point(269, 96);
+            this.txtDescripcionConsulta.Location = new System.Drawing.Point(186, 94);
             this.txtDescripcionConsulta.Name = "txtDescripcionConsulta";
             this.txtDescripcionConsulta.ReadOnly = true;
             this.txtDescripcionConsulta.Size = new System.Drawing.Size(170, 78);
@@ -125,53 +121,17 @@
             // lblDescripcion2
             // 
             this.lblDescripcion2.AutoSize = true;
-            this.lblDescripcion2.Location = new System.Drawing.Point(323, 80);
+            this.lblDescripcion2.Location = new System.Drawing.Point(240, 78);
             this.lblDescripcion2.Name = "lblDescripcion2";
             this.lblDescripcion2.Size = new System.Drawing.Size(63, 13);
             this.lblDescripcion2.TabIndex = 6;
             this.lblDescripcion2.Text = "Descripcion";
             // 
-            // txtPrecioConsulta
-            // 
-            this.txtPrecioConsulta.Location = new System.Drawing.Point(309, 47);
-            this.txtPrecioConsulta.Multiline = true;
-            this.txtPrecioConsulta.Name = "txtPrecioConsulta";
-            this.txtPrecioConsulta.ReadOnly = true;
-            this.txtPrecioConsulta.Size = new System.Drawing.Size(100, 20);
-            this.txtPrecioConsulta.TabIndex = 11;
-            // 
-            // lblPrecio2
-            // 
-            this.lblPrecio2.AutoSize = true;
-            this.lblPrecio2.Location = new System.Drawing.Point(259, 50);
-            this.lblPrecio2.Name = "lblPrecio2";
-            this.lblPrecio2.Size = new System.Drawing.Size(37, 13);
-            this.lblPrecio2.TabIndex = 7;
-            this.lblPrecio2.Text = "Precio";
-            // 
-            // lblNumero2
-            // 
-            this.lblNumero2.AutoSize = true;
-            this.lblNumero2.Location = new System.Drawing.Point(259, 16);
-            this.lblNumero2.Name = "lblNumero2";
-            this.lblNumero2.Size = new System.Drawing.Size(44, 13);
-            this.lblNumero2.TabIndex = 5;
-            this.lblNumero2.Text = "Numero";
-            // 
-            // txtNumeroConsulta
-            // 
-            this.txtNumeroConsulta.Location = new System.Drawing.Point(309, 13);
-            this.txtNumeroConsulta.Multiline = true;
-            this.txtNumeroConsulta.Name = "txtNumeroConsulta";
-            this.txtNumeroConsulta.ReadOnly = true;
-            this.txtNumeroConsulta.Size = new System.Drawing.Size(100, 20);
-            this.txtNumeroConsulta.TabIndex = 13;
-            // 
             // mrcOrigen
             // 
             this.mrcOrigen.Controls.Add(this.optNacional);
             this.mrcOrigen.Controls.Add(this.optImportado);
-            this.mrcOrigen.Location = new System.Drawing.Point(178, 299);
+            this.mrcOrigen.Location = new System.Drawing.Point(36, 46);
             this.mrcOrigen.Name = "mrcOrigen";
             this.mrcOrigen.Size = new System.Drawing.Size(96, 77);
             this.mrcOrigen.TabIndex = 4;
@@ -200,14 +160,50 @@
             this.optImportado.Text = "Importado";
             this.optImportado.UseVisualStyleBackColor = true;
             // 
+            // txtPrecioConsulta
+            // 
+            this.txtPrecioConsulta.Location = new System.Drawing.Point(253, 47);
+            this.txtPrecioConsulta.Multiline = true;
+            this.txtPrecioConsulta.Name = "txtPrecioConsulta";
+            this.txtPrecioConsulta.ReadOnly = true;
+            this.txtPrecioConsulta.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecioConsulta.TabIndex = 11;
+            // 
+            // lblPrecio2
+            // 
+            this.lblPrecio2.AutoSize = true;
+            this.lblPrecio2.Location = new System.Drawing.Point(203, 50);
+            this.lblPrecio2.Name = "lblPrecio2";
+            this.lblPrecio2.Size = new System.Drawing.Size(37, 13);
+            this.lblPrecio2.TabIndex = 7;
+            this.lblPrecio2.Text = "Precio";
+            // 
             // lblMarca2
             // 
             this.lblMarca2.AutoSize = true;
-            this.lblMarca2.Location = new System.Drawing.Point(148, 275);
+            this.lblMarca2.Location = new System.Drawing.Point(6, 22);
             this.lblMarca2.Name = "lblMarca2";
             this.lblMarca2.Size = new System.Drawing.Size(40, 13);
             this.lblMarca2.TabIndex = 1;
             this.lblMarca2.Text = "Marca ";
+            // 
+            // lblNumero2
+            // 
+            this.lblNumero2.AutoSize = true;
+            this.lblNumero2.Location = new System.Drawing.Point(203, 16);
+            this.lblNumero2.Name = "lblNumero2";
+            this.lblNumero2.Size = new System.Drawing.Size(44, 13);
+            this.lblNumero2.TabIndex = 5;
+            this.lblNumero2.Text = "Numero";
+            // 
+            // txtNumeroConsulta
+            // 
+            this.txtNumeroConsulta.Location = new System.Drawing.Point(253, 13);
+            this.txtNumeroConsulta.Multiline = true;
+            this.txtNumeroConsulta.Name = "txtNumeroConsulta";
+            this.txtNumeroConsulta.ReadOnly = true;
+            this.txtNumeroConsulta.Size = new System.Drawing.Size(100, 20);
+            this.txtNumeroConsulta.TabIndex = 13;
             // 
             // LstMarcaConsulta
             // 
@@ -217,7 +213,7 @@
             "P",
             "F",
             "R"});
-            this.LstMarcaConsulta.Location = new System.Drawing.Point(194, 272);
+            this.LstMarcaConsulta.Location = new System.Drawing.Point(52, 19);
             this.LstMarcaConsulta.Name = "LstMarcaConsulta";
             this.LstMarcaConsulta.Size = new System.Drawing.Size(121, 21);
             this.LstMarcaConsulta.TabIndex = 0;
@@ -226,6 +222,7 @@
             // 
             this.mrcDatos.Controls.Add(this.LstOrigen);
             this.mrcDatos.Controls.Add(this.LstMarca);
+            this.mrcDatos.Controls.Add(this.btnRegistrar);
             this.mrcDatos.Controls.Add(this.txtDescripcion);
             this.mrcDatos.Controls.Add(this.lblMarca);
             this.mrcDatos.Controls.Add(this.txtPrecio);
@@ -236,7 +233,7 @@
             this.mrcDatos.Controls.Add(this.lblPrecio);
             this.mrcDatos.Location = new System.Drawing.Point(12, 12);
             this.mrcDatos.Name = "mrcDatos";
-            this.mrcDatos.Size = new System.Drawing.Size(496, 204);
+            this.mrcDatos.Size = new System.Drawing.Size(486, 204);
             this.mrcDatos.TabIndex = 18;
             this.mrcDatos.TabStop = false;
             this.mrcDatos.Text = "Datos del Repuesto";
@@ -339,15 +336,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 614);
-            this.Controls.Add(this.btnConsultar);
+            this.ClientSize = new System.Drawing.Size(520, 485);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.mrcOrigen);
             this.Controls.Add(this.mrcIngresados);
-            this.Controls.Add(this.lblMarca2);
             this.Controls.Add(this.mrcDatos);
-            this.Controls.Add(this.LstMarcaConsulta);
             this.Name = "frmRepuestos";
             this.Text = "Repuestos";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -358,7 +350,6 @@
             this.mrcDatos.ResumeLayout(false);
             this.mrcDatos.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -390,7 +381,6 @@
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblPrecio;
-        private System.Windows.Forms.ListBox ListBoxRepuestos;
     }
 }
 

@@ -45,6 +45,7 @@ namespace PrySp3Repuestos_Cantallops
                          "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     btnRegistrar.Enabled = false;
                 }
+                Limpiador();
             }
         }
 
@@ -97,84 +98,80 @@ namespace PrySp3Repuestos_Cantallops
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            int pos;
-            if (LstMarcaConsulta.Text == "P" && optImportado.Enabled)
+            txtDescripcionConsulta.Text = "";
+
+            for (int i = 0; i < repuestos.Length; i++)
             {
-                for (pos = 0; pos > Cantidad; pos++)
+                if (optImportado.Checked)
                 {
-                    if (repuestos[pos].Marca == "P" && repuestos[pos].Origen == "I")
+                    if (repuestos[i].Origen == "I")
                     {
-                        ListBoxRepuestos.Items.Add(repuestos[pos]);
-                    }
-                
-                }
-            }
-            else
-            {
-                if (LstMarcaConsulta.Text == "P" && optNacional.Enabled)
-                {
-                    for (pos = 0;  pos > Cantidad; pos++)
-                    {
-                        if (repuestos[pos].Marca == "P" && repuestos[pos].Origen == "N")
+                        if (repuestos[i].Marca == "P")
                         {
-                            ListBoxRepuestos.Items.Add(repuestos[pos]);
-                        }
-                    }
-                }
-                else
-                {
-                    if (LstMarcaConsulta.Text == "R" && optImportado.Enabled)
-                    {
-                        for (pos = 0; pos > Cantidad; pos++)
-                        {
-                            if (repuestos[pos].Marca == "R" && repuestos[pos].Origen == "I")
-                            {
-                                ListBoxRepuestos.Items.Add(repuestos[pos]);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (LstMarcaConsulta.Text == "R" && optNacional.Enabled)
-                        {
-                            for (pos = 0; pos > Cantidad; pos++)
-                            {
-                                if (repuestos[pos].Marca == "R" && repuestos[pos].Origen == "N")
-                                {
-                                    ListBoxRepuestos.Items.Add(repuestos[pos]);
-                                }
-                            }
+                            txtDescripcionConsulta.Text = txtDescripcionConsulta.Text + "Nro: " + repuestos[i].Numero.ToString() + " " + "Precio: " + repuestos[i].Precio.ToString() + "" + "Descripcion" + " " + repuestos[i].Descripcion.ToString();
                         }
                         else
                         {
-                            if (LstMarcaConsulta.Text == "F" && optImportado.Enabled)
+                            if (repuestos[i].Marca == "F")
                             {
-                                for (pos = 0; pos > Cantidad; pos++)
-                                {
-                                    if (repuestos[pos].Marca == "F" && repuestos[pos].Origen == "I")
-                                    {
-                                        ListBoxRepuestos.Items.Add(repuestos[pos]);
-                                    }
-                                }
+                                txtDescripcionConsulta.Text = txtDescripcionConsulta.Text + "Nro: " + repuestos[i].Numero.ToString() + " " + "Precio: " + repuestos[i].Precio.ToString() + "" + "Descripcion" + " " + repuestos[i].Descripcion.ToString();
                             }
                             else
                             {
-                                if (LstMarcaConsulta.Text == "F" && optNacional.Enabled)
-                                {
-                                    for (pos = 0; pos > Cantidad; pos++)
-                                    {
-                                        if (repuestos[pos].Marca == "F" && repuestos[pos].Origen == "N")
-                                        {
-                                            ListBoxRepuestos.Items.Add(repuestos[pos]);
-                                        }
-                                    }
-                                }
+                                txtDescripcionConsulta.Text = txtDescripcionConsulta.Text + "Nro: " + repuestos[i].Numero.ToString() + " " + "Precio: " + repuestos[i].Precio.ToString() + "" + "Descripcion" + " " + repuestos[i].Descripcion.ToString();
                             }
-
+                        }
+                        
+                        
+                            
+                    }
+                }
+                if (optNacional.Checked)
+                {
+                    if (repuestos[i].Origen == "N")
+                    {
+                        if (repuestos[i].Marca == "P")
+                        {
+                            txtDescripcionConsulta.Text = txtDescripcionConsulta.Text + "Nro: " + repuestos[i].Numero.ToString() + " " + "Precio: " + repuestos[i].Precio.ToString() + "" + "Descripcion" + " " + repuestos[i].Descripcion.ToString();
+                        }
+                        else
+                        {
+                            if (repuestos[i].Marca == "F")
+                            {
+                                txtDescripcionConsulta.Text = txtDescripcionConsulta.Text + "Nro: " + repuestos[i].Numero.ToString() + " " + "Precio: " + repuestos[i].Precio.ToString() + "" + "Descripcion" + " " + repuestos[i].Descripcion.ToString();
+                            }
+                            else
+                            {
+                                txtDescripcionConsulta.Text = txtDescripcionConsulta.Text + "Nro: " + repuestos[i].Numero.ToString() + " " + "Precio: " + repuestos[i].Precio.ToString() + "" + "Descripcion" + " " + repuestos[i].Descripcion.ToString();
+                            }
                         }
                     }
                 }
             }
+
+        }
+          
+       
+
+        private void mrcIngresados_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Limpiador()
+        {
+            LstMarca.SelectedIndex = -1;
+            LstOrigen.SelectedIndex = -1;
+            txtNumero.Text = "";
+            txtPrecio.Text = "";
+            txtDescripcion.Text = "";
+            LstMarca.Focus();
+
         }
     }
 }
